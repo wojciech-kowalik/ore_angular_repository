@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+
+<div class="modal-body">
+    
+    <alert type="{{alert.type}}" ng-show="isShowAlert">{{alert.msg}}</alert> 
+
+    <form role="form">
+        <input type="hidden" ng-model="form.id" />
+        <div class="form-group">
+            <label for="form-name">Nazwa</label>
+            <input ng-model="form.name" ng-value="form.name" type="text" class="form-control" id="form-name" placeholder="Wprowadź nazwę">
+            <span class="error" ng-show="!form.name">{{nameRequired}}</span>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input ng-model="form.state" ng-checked="form.state" type="checkbox"> Publikacja
+            </label>
+        </div>
+    </form>     
+    
+</div>
+<div class="modal-footer"> 
+    <div class="spinner" ng-show="loading"></div>
+    <button class="btn btn-primary" ng-click="saveData()">Zapisz</button>
+    <button class="btn btn-warning" ng-click="cancel()">Zamknij</button>
+</div> 
